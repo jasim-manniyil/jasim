@@ -21,9 +21,9 @@
         <img src="/img/menuicon.png" class="menu-icon" id="menu-toggle" alt="menu icon">
         <nav class="nav-links" id="nav-links">
             <a href="#">Home</a>
-            <a href="#">About Me</a>
-            <a href="#">Skills</a>
-            <a href="#">Projects</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#">Contact</a>
         </nav>
     </div>
@@ -69,7 +69,7 @@ AI tools to enhance web functionality and user experience.</p>
 </section>
 <br>
 <br>
-<section class="cert">
+<section class="cert" id="certification">
     <div class="container">
         <h1> Certification </h1>
         <div class="cert-cont">
@@ -109,7 +109,7 @@ automation tasks.</p>
 </section>
 <br>
 <br>
-<section class="container skills-section">
+<section class="container skills-section" id="skills">
     <center><h1>Skills</h1></center>
     <div class="row g-4"> 
         
@@ -209,7 +209,7 @@ automation tasks.</p>
                     <span class="skill-percentage">70%</span>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-name">Oracle-SQL</span>
+                    <span class="skill-name">PSQL</span>
                     <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
                     <span class="skill-percentage">70%</span>
                 </div>
@@ -220,6 +220,16 @@ automation tasks.</p>
         <div class="col-lg-4 col-md-6">
             <div class="skill-card active-card">
                 <h3>Frameworks</h3>
+                <div class="skill-item">
+                    <span class="skill-name">ReactJs</span>
+                    <div class="progress-bar-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Flask</span>
+                    <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                    <span class="skill-percentage">80%</span>
+                </div>
                 <div class="skill-item">
                     <span class="skill-name">JDBC</span>
                     <div class="progress-bar-container"><div class="progress-bar" style="width: 60%;"></div></div>
@@ -235,6 +245,7 @@ automation tasks.</p>
                     <div class="progress-bar-container"><div class="progress-bar" style="width: 40%;"></div></div>
                     <span class="skill-percentage">40%</span>
                 </div>
+                
             </div>
         </div>
 
@@ -265,7 +276,7 @@ automation tasks.</p>
 
 <!-- Projects -->
 
-<section class="container my-5 projects-section">
+<section class="container my-5 projects-section" id="projects">
     <center><h1>Projects</h1></center>
     <div class="row g-4">
         
@@ -310,7 +321,13 @@ automation tasks.</p>
         </div>
     </div>
 </section>
-
+<div class="cursor-trail">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcO4W46fI5s2L+l6S7aF" crossorigin="anonymous"></script>
 <script>
@@ -320,6 +337,64 @@ automation tasks.</p>
     toggle.addEventListener('click', () => {
         navLinks.classList.toggle('active'); 
     });
+
+    const cursor = document.querySelector('.custom-cursor');
+
+const dots = document.querySelectorAll('.dot');
+const mouse = { x: 0, y: 0 };
+const dotsData = Array.from(dots).map(() => ({ x: 0, y: 0 }));
+
+document.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function animate() {
+  let { x, y } = mouse;
+
+  dotsData.forEach((data, index) => {
+    const nextData = dotsData[index + 1] || { x, y };
+    
+    // The "Tail" logic: move toward the mouse but with a delay
+    data.x += (x - data.x) * 0.3; 
+    data.y += (y - data.y) * 0.3;
+
+    dots[index].style.left = data.x + 'px';
+    dots[index].style.top = data.y + 'px';
+    
+    // Make the dots get smaller toward the end of the tail
+    const scale = (dots.length - index) / dots.length;
+    dots[index].style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+    x = data.x;
+    y = data.y;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+
+const interactables = document.querySelectorAll('button, a');
+
+interactables.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    dots[0].classList.add('hovering');
+
+    for(let i = 1; i < dots.length; i++) {
+      dots[i].style.opacity = '0';
+    }
+  });
+
+  el.addEventListener('mouseleave', () => {
+    dots[0].classList.remove('hovering');
+
+    for(let i = 1; i < dots.length; i++) {
+      dots[i].style.opacity = '1';
+    }
+  });
+});
 </script>
 </body>
 </html>
