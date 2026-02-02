@@ -24,7 +24,7 @@
             <a href="#about">About Me</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#">Contact</a>
+            <a href="https://drive.google.com/file/d/1QLi48ahNhQXIgcOLHlbLydmNC8C8CHI9/view?usp=sharing" style="color: yellow;">Resume</a>
         </nav>
     </div>
     <div class="header-content">
@@ -335,6 +335,7 @@ automation tasks.</p>
   <div class="dot"></div>
   <div class="dot"></div>
   <div class="dot"></div>
+  
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcO4W46fI5s2L+l6S7aF" crossorigin="anonymous"></script>
@@ -362,15 +363,13 @@ function animate() {
 
   dotsData.forEach((data, index) => {
     const nextData = dotsData[index + 1] || { x, y };
-    
-    // The "Tail" logic: move toward the mouse but with a delay
+   
     data.x += (x - data.x) * 0.3; 
     data.y += (y - data.y) * 0.3;
 
     dots[index].style.left = data.x + 'px';
     dots[index].style.top = data.y + 'px';
-    
-    // Make the dots get smaller toward the end of the tail
+
     const scale = (dots.length - index) / dots.length;
     dots[index].style.transform = `translate(-50%, -50%) scale(${scale})`;
 

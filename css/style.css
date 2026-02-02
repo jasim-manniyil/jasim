@@ -24,6 +24,7 @@ body
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
     
 }
 body {
@@ -449,6 +450,12 @@ header .header-content {
 .themed-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    box-shadow:
+    -5px -5px 15px rgba(8, 97, 212, 0.5),
+    5px 5px 15px rgba(8, 97, 212, 0.5),
+    inset 0 0 10px rgba(43, 43, 43, 0.05); 
+    transition: ease-in-out 0.3s;
+    transform: translateY(-3px);
 }
 
 .card-title {
