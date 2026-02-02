@@ -63,6 +63,25 @@ button, a {
     box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
   }
 }
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  
+  .cursor-trail, .dot {
+    display: block;
+  }
+}
+@media (pointer: coarse) {
+  body {
+    cursor: auto; 
+  }
+  
+  .cursor-trail, .dot {
+    display: none;
+  }
+}
 /* header */
 header {
     height: 100vh;
@@ -82,7 +101,7 @@ header {
     position: relative;
 }
 
-/* --- DESKTOP NAVIGATION STYLES (.nav-links and .menu-icon) --- */
+
 .nav-links {
     display: flex;
     justify-content: space-between;
