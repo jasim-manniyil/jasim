@@ -161,7 +161,10 @@ header .header-content {
     .menu-icon {
         display: block;
     }
-    
+    .navi h1
+    {
+        padding-top: 10px;
+    }
     .nav-links {
         position: absolute;
         top: 10vh; 
